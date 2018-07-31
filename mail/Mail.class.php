@@ -35,6 +35,12 @@ class Mail {
         $email = $argv[1];
         $password = $argv[2];
 
+        if(empty($email)) {
+            echo "[!] You do not entered email! 
+            -> Connection closed..\n";
+            exit;
+        }
+
         if($password === null) {
             echo "[!] You do not entered password -> it will generate automatically!\n";
             $password = $this->generatePassword(8);
