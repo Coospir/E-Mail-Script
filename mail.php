@@ -1,5 +1,6 @@
 <?php
 
+error_reporting(0);
 require __DIR__ . "/config/Database.class.php";
 require __DIR__ . "/mail/Mail.class.php";
 

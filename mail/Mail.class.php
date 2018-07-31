@@ -17,7 +17,7 @@ class Mail {
         return $randomString;
     }
 
-    public function ifExists($email) {
+    public function isExists($email) {
         try {
             $query = "SELECT COUNT(*) FROM `passwd` WHERE id = :email";
             $stmt = $this->conn->connection->prepare($query);
@@ -51,7 +51,7 @@ class Mail {
 
         list($name, $domain) = explode("@", $email);
         try {
-            if(!$this->ifExists($email)) {
+            if(!$this->isExists($email)) {
                 $query1 = "INSERT INTO `passwd` (id, clear) VALUES (:email, :pass)";
                 $stmtPasswd = $this->conn->connection->prepare($query1);
                 $stmtPasswd->bindValue(":email", $email);
